@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Rounded Box</title>
+<style>
+  body {
+    background-color: rgb(192, 31, 31);
+  }
+
+  .box{
+    width: 200px;
+    height: 170px;
+    background: 
+        url('img/box_tl.gif') top left no-repeat,
+        url('img/box_tr.gif') top right no-repeat,
+        url('img/box_bl.gif') bottom left no-repeat,
+        url('img/box_br.gif') bottom right no-repeat,
+        url('img/box_b.gif') bottom repeat-x,
+        url('img/box_t.gif') top repeat-x,
+        url('img/box_l.gif') left repeat-y,
+        url('img/box_r.gif') right repeat-y;
+        padding: 20px;
+        color: white;
+  }
+
+  a.more {
+    color: yellow;
+    text-decoration: none;
+    float: right;
+  }
+
+  a.more:hover {
+    color: green;
+    text-decoration: underline;
+  }
+
+  div{
+    background-color: rgb(113, 15, 15) !important;
+  }
+</style>
+</head>
+<body>
+    <div class="box">
+    <h3>12.02.2011</h3>
+    <p>Satu per satu para pesaing Manchester United mulai menunjukkan tanda-tanda "menyerah". Kini tinggal..</p>
+    <a href="#" class="more">more</a>
+</div>
+
+</body>
+</html>

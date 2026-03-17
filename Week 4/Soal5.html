@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Soal 5</title>
+    <style>
+        .main-list {
+            list-style-image: url('img/sqpurple.gif'); 
+        }
+
+        .sub-list {
+            list-style-image: url('img/sqorange.gif'); 
+        }
+
+        .no-bullet {
+            list-style-type: none;
+        }
+
+        .orange-text {
+            color: orange;
+        }
+
+        .underline {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <ul class="main-list">
+        <li>Coffee</li>
+        <li>Tea
+            <ul class="sub-list">
+                <li><span class="orange-text">Cold</span> Tea
+                    <ul class="no-bullet">
+                        <li class="underline">Jasmine</li>
+                        <li class="underline">Green</li>
+                    </ul>
+                </li>
+                <li><span class="orange-text">Hot</span> Tea</li>
+            </ul>
+        </li>
+        <li>Coca Cola</li>
+    </ul>
+
+</body>
+</html>
