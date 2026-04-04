@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>nomor 5</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            padding: 50px;
+        }
+
+        .navbar {
+            list-style-type: none;
+        }
+
+        .navbar > li {
+            float: left;
+            margin-right: 3px;
+            position: relative;
+            border-style: dotted;
+            border-color: grey;
+            border-width: 2px;
+            background-color: #ffffff;
+        }
+
+        .navbar a {
+            display: block;
+            padding: 1px 25px;
+            text-decoration: none;
+            color: #000000;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .navbar a:hover {
+            background-color: #000000;
+            color: #ffffff;
+        }
+
+        .submenu {
+            display: none;
+            position: absolute;
+            list-style-type: none;
+            top: 100%;
+            left: -2px;
+            right: -2px;
+        }
+
+        .navbar > li:hover .submenu {
+            display: block;
+        }
+
+        .submenu li {
+            border-style: dotted;
+            border-color: grey;
+            border-width: 2px;
+            background-color: #ffffff;
+            margin-top: -2px;
+        }
+    </style>
+</head>
+<body>
+
+    <ul class="navbar">
+        <li><a href="#">Home</a></li>
+        <li>
+            <a href="#">News</a>
+            <ul class="submenu">
+                <li><a href="#">Sports</a></li>
+                <li><a href="#">Music</a></li>
+                <li><a href="#">Movie</a></li>
+            </ul>
+        </li>
+        <li><a href="#">Contact</a></li>
+        <li><a href="#">About</a></li>
+    </ul>
+
+</body>
+</html>

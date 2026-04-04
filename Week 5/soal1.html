@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nomor 1</title>
+    <style>
+
+        td {
+            position: relative; 
+            padding: 40px;
+            cursor: pointer;
+        }
+
+        .corner {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+        }
+
+        .top-left { 
+            top: 0; 
+            left: 0; 
+            border-top: 5px solid #FF0000; 
+            border-left: 5px solid #FF0000; 
+        }
+        
+        .top-right { 
+            top: 0; 
+            right: 0; 
+            border-top: 5px solid #FF0000; 
+            border-right: 5px solid #FF0000; 
+        }
+        
+        .bottom-left { 
+            bottom: 0; 
+            left: 0; 
+            border-bottom: 5px solid #FF0000; 
+            border-left: 5px solid #FF0000; 
+        }
+        
+        .bottom-right { 
+            bottom: 0; 
+            right: 0; 
+            border-bottom: 5px solid #FF0000; 
+            border-right: 5px solid #FF0000; 
+        }
+
+        td:hover .corner {
+            border-color: #FF00FF;
+        }
+
+        img {
+            display: block;
+            width: 150px;
+        }
+    </style>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <td>
+                <div class="corner top-left"></div>
+                <div class="corner top-right"></div>
+                <div class="corner bottom-left"></div>
+                <div class="corner bottom-right"></div>
+                <img src="src/star.jpg">
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
