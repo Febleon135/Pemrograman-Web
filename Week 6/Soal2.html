@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>nomor 2</title>
+    <style>
+        table, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+            font-size: 25px;
+            padding: 10px;
+        }
+        td {
+            min-width: 40px;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    var input;
+    var angka;
+
+    while (true) {
+        input = prompt("A number?", "");
+        angka = parseInt(input);
+
+        if (!isNaN(angka) && input !== null && input !== "") {
+            break;
+        }
+    }
+
+    document.write("<table>");
+    
+    for (var i = 1; i <= angka; i++) {
+        document.write("<tr>");
+        document.write("<td>" + i + "</td>");
+        document.write("<td>x</td>");
+        document.write("<td>" + angka + "</td>");
+        document.write("<td>=</td>");
+        document.write("<td>" + (i * angka) + "</td>");
+        document.write("</tr>");
+    }
+    
+    document.write("</table>");
+</script>
+
+</body>
+</html>

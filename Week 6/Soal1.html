@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>nomor 1</title>
+    <script>
+        function count() {
+            var val1 = document.getElementById('input1').value;
+            var val2 = document.getElementById('input2').value;
+
+            var angka1 = parseInt(val1);
+            var angka2 = parseInt(val2);
+
+            if (isNaN(angka1) && isNaN(angka2)) {
+                alert("angka pertama dan kedua harus angka.");
+                return;
+            } else if (isNaN(angka1)) {
+                alert("angka pertama bukan angka.");
+                return;
+            } else if (isNaN(angka2)) {
+                alert("angka kedua harus angka.");
+                return;
+            }
+
+            var hasilTambah = angka1 + angka2;
+            var hasilKurang = angka1 - angka2;
+
+            document.getElementById('t1').innerHTML = angka1;
+            document.getElementById('t2').innerHTML = angka2;
+            document.getElementById('res_plus').innerHTML = hasilTambah;
+
+            document.getElementById('k1').innerHTML = angka1;
+            document.getElementById('k2').innerHTML = angka2;
+            document.getElementById('res_minus').innerHTML = hasilKurang;
+        }
+    </script>
+    <style>
+        table, td {
+            border: 1px solid black;
+            border-collapse: collapse;
+            text-align: center;
+        }
+        td {
+            font-size: 35px;
+            padding: 5px 15px;
+            min-width: 60px;
+            height: 60px;
+        }
+        .symbol {
+            font-size: 30px;
+        }
+    </style>
+</head>
+<body>
+
+    <p>Angka Pertama : <input type="text" id="input1"></p>
+    <p>Angka Kedua : <input type="text" id="input2"></p>
+    
+    <button onClick="count()">Count</button> 
+    <br><br>
+
+    <table>
+        <tr>
+            <td id="t1"></td>
+            <td class="symbol">+</td>
+            <td id="t2"></td>
+            <td class="symbol">=</td>
+            <td id="res_plus"></td>
+        </tr>
+        <tr>
+            <td id="k1"></td>
+            <td class="symbol">-</td>
+            <td id="k2"></td>
+            <td class="symbol">=</td>
+            <td id="res_minus"></td>
+        </tr>
+    </table>
+
+</body>
+</html>

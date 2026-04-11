@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>nomor 3</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        td {
+            width: 30px;
+            height: 30px;
+            border: 1px solid white;
+        }
+        .orange {
+            background-color: orange;
+        }
+    </style>
+    <script>
+        function proses() {
+            var tinggi = parseInt(document.getElementById('tinggi').value);
+            var container = document.getElementById('hasil');
+            var html = "<table width='800' height='600'>";
+            
+            for (var i = 1; i <= tinggi; i++) {
+                html += "<tr>";
+                
+                var jumlahKosong = tinggi - i;
+                for (var j = 1; j <= jumlahKosong; j++) {
+                    html += "<td></td>";
+                }
+                
+                var jumlahBlok = (2 * i) - 1;
+                for (var k = 1; k <= jumlahBlok; k++) {
+                    html += "<td class='orange'></td>";
+                }
+                
+                for (var l = 1; l <= jumlahKosong; l++) {
+                    html += "<td></td>";
+                }
+                
+                html += "</tr>";
+            }
+            
+            html += "</table>";
+            container.innerHTML = html;
+        }
+    </script>
+</head>
+<body>
+
+    <div>
+        Tinggi Piramida: <input type="text" id="tinggi">
+        <br>
+        <button onclick="proses()">proses</button>
+    </div>
+
+    <div id="hasil"></div>
+
+</body>
+</html>

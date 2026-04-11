@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>nomor 4</title>
+    <style>
+        table {
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        td {
+            padding: 5px;
+        }
+        .label {
+            font-weight: bold;
+            color: blue;
+        }
+    </style>
+    <script>
+        function proses() {
+            var input = document.getElementById('input').value;
+            var mode = document.getElementById('mode').value;
+            var output = "";
+
+            if (mode === "dec-bin") {
+                var num = parseInt(input);
+                if (isNaN(num) || num < 0 || num > 255) {
+                    alert("Input harus angka 0 s/d 255");
+                    return;
+                }
+                
+                if (num === 0) {
+                    output = "00000000";
+                } else {
+                    var res = "";
+                    while (num > 0) {
+                        res = (num % 2) + res;
+                        num = Math.floor(num / 2);
+                    }
+                    while (res.length < 8) {
+                        res = "0" + res;
+                    }
+                    output = res;
+                }
+            } else {
+                if (input.length !== 8) {
+                    alert("Input biner harus 8 digit");
+                    return;
+                }
+                
+                var decimal = 0;
+                for (var i = 0; i < input.length; i++) {
+                    var bit = input.charAt(i);
+                    if (bit !== '0' && bit !== '1') {
+                        alert("Hanya boleh diisi angka 0 atau 1");
+                        return;
+                    }
+                    var pangkat = 7 - i;
+                    var nilaiPangkat = 1;
+                    for (var j = 0; j < pangkat; j++) {
+                        nilaiPangkat *= 2;
+                    }
+                    decimal += parseInt(bit) * nilaiPangkat;
+                }
+                output = decimal;
+            }
+
+            document.getElementById('output').value = output;
+        }
+
+        function reset() {
+            document.getElementById('input').value = "";
+            document.getElementById('output').value = "";
+            document.getElementById('mode').selectedIndex = 0;
+        }
+    </script>
+</head>
+<body>
+
+    <table>
+        <tr>
+            <td class="label">Input :</td>
+            <td><input type="text" id="input"></td>
+        </tr>
+        <tr>
+            <td class="label">Output :</td>
+            <td><input type="text" id="output" readonly></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <select id="mode">
+                    <option value="dec-bin">decimal-biner</option>
+                    <option value="bin-dec">biner-decimal</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <button onclick="proses()">PROSES</button>
+                <button onclick="reset()">RESET</button>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>
