@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>nomor 2</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 400px;
+            font-family: sans-serif;
+            border: 1px solid #ffffff;
+            box-shadow: 5px 5px 15px rgba(255, 255, 255, 0.2);
+        }
+        th {
+            background-color: #A9BBA0;
+            padding: 10px;
+            border: 1px solid #ffffff;
+            text-align: left;
+        }
+        td {
+            padding: 8px;
+            border: 1px solid #ffffff;
+        }
+        .c1 { background-color: #B2D1FF; }
+        .c2 { background-color: #FFCCB2; }
+        .c3 { background-color: #CCFFAA !important; }
+    </style>
+</head>
+<body>
+
+    <table id="myTable">
+        <thead>
+            <tr>
+                <th>Position</th>
+                <th>Programming Language</th>
+                <th>Ratings</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="c1" onmouseover="changeClass(this, 'c3')" onmouseout="changeClass(this, 'c1')">
+                <td>1</td>
+                <td>C</td>
+                <td>18.058%</td>
+            </tr>
+            <tr class="c2" onmouseover="changeClass(this, 'c3')" onmouseout="changeClass(this, 'c2')">
+                <td>2</td>
+                <td>Java</td>
+                <td>18.051%</td>
+            </tr>
+            <tr class="c1" onmouseover="changeClass(this, 'c3')" onmouseout="changeClass(this, 'c1')">
+                <td>3</td>
+                <td>C++</td>
+                <td>9.707%</td>
+            </tr>
+            <tr class="c2" onmouseover="changeClass(this, 'c3')" onmouseout="changeClass(this, 'c2')">
+                <td>4</td>
+                <td>PHP</td>
+                <td>9.662%</td>
+            </tr>
+            <tr class="c1" onmouseover="changeClass(this, 'c3')" onmouseout="changeClass(this, 'c1')">
+                <td>5</td>
+                <td>(Visual) Basic</td>
+                <td>6.392%</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <script>
+        function changeClass(row, className) {
+            row.className = className;
+        }
+    </script>
+
+</body>
+</html>
