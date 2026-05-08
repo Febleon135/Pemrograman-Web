@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nomor 2</title>
+    <script src="jquery-4.0.0.min.js"></script>
+    <style>
+        .container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 350px;
+            box-shadow: 2px 2px 5px #888;
+        }
+        .name-list {
+            margin-top: 10px;
+        }
+        .search-highlight {
+            text-decoration: underline;
+        }
+        input[type="text"] {
+            width: 200px;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("#btnAdd").click(function() {
+                var name = $("#inputName").val();
+                if(name !== "") {
+                    $("<div>" + name + "</div>").appendTo("#nameList");
+                    $("#inputName").val("");
+                }
+            });
+
+            $("#btnSearch").click(function() {
+                var searchKey = $("#inputName").val();
+                
+                $("#nameList div").removeClass("search-highlight");
+
+                if(searchKey !== "") {
+                    $("#nameList div:contains('" + searchKey + "')").addClass("search-highlight");
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <input type="text" id="inputName">
+        <button id="btnAdd">Add</button>
+        <button id="btnSearch">Search</button>
+
+        <div id="nameList" class="name-list">
+            <div>John Resig</div>
+            <div>George Martin</div>
+            <div>Malcom John Sinclair</div>
+            <div>J. Ohn</div>
+        </div>
+    </div>
+
+</body>
+</html>

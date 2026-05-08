@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nomor 1</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .main-menu {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            gap: 10px;
+        }
+        .item {
+            position: relative;
+            background-color: #ff3399;
+            color: white;
+            padding: 5px 15px;
+            cursor: pointer;
+            min-width: 150px;
+        }
+        .item ol {
+            list-style-type: none;
+            padding: 10px;
+            margin: 0;
+            position: absolute;
+            left: 0;
+            top: 100%;
+            background-color: white;
+            border: 2px solid #ff3399;
+            color: black;
+            width: 100%;
+            box-sizing: border-box;
+            z-index: 10;
+        }
+        .item ol li {
+            padding: 5px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .item ol li:last-child {
+            border-bottom: none;
+        }
+        .item ol li:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <script>
+        $(document).ready(function() {
+            $("li.item ol").hide();
+
+            $("li.item").hover(
+                function() {
+                    $(this).children("ol").stop(true, true).show();
+                },
+                function() {
+                    $(this).children("ol").stop(true, true).hide();
+                }
+            );
+        });
+    </script>
+</head>
+<body>
+
+    <ol class="main-menu">
+        <li class="item">
+            jQuery
+            <ol>
+                <li>Download</li>
+                <li>Documentation</li>
+                <li>Blog</li>
+            </ol>
+        </li>
+        <li class="item">
+            Community
+            <ol>
+                <li>Mailing List</li>
+                <li>Tutorials</li>
+                <li>Demos</li>
+                <li>Plugins</li>
+            </ol>
+        </li>
+        <li class="item">
+            Development
+            <ol>
+                <li>Source Code</li>
+                <li>Bug Tracking</li>
+                <li>Recent Changes</li>
+            </ol>
+        </li>
+    </ol>
+
+</body>
+</html>

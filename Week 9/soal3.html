@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Nomor 3</title>
+    <style>
+        div { 
+            width: 40px; 
+            height: 40px; 
+            margin: 5px; 
+            float: left;
+            border: 2px blue solid; 
+            text-align: center; 
+        }
+        .red-box {
+            background-color: red !important;
+        }
+        .yellow-box {
+            background-color: yellow;
+        }
+    </style>
+    <script src="jquery-4.0.0.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("div").click(function() {
+                $(this).addClass("red-box").attr("id", "stopHere");
+            });
+
+            $("button").click(function() {
+                $("div").each(function(index, domEle) {
+                    if ($(domEle).attr("id") === "stopHere") {
+                        return false;
+                    }
+                    $(domEle).addClass("yellow-box");
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <button>Change colors</button>
+    <br><br>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+</html>
