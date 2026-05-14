@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Soal 2 - Portal SI</title>
+    <script src="jquery.js"></script>
+    <style>
+        .outer-border { 
+            width: 800px; 
+            border: 1px solid #000; 
+            margin: 20px auto 10px auto; 
+        }
+        .header-section { 
+            border-bottom: 1px solid #000; 
+            text-align: center; 
+            padding: 15px; 
+        }
+        .header-section a { 
+            color: blue; 
+            font-size: 24px; 
+            font-weight: bold; 
+            text-decoration: underline; 
+        }
+        .content-section { 
+            padding: 20px; 
+            border-bottom: 
+            1px solid #000; 
+        }
+        .footer-section { 
+            padding: 10px; 
+            background-color: #eee; 
+            font-size: 14px; 
+        }
+        
+        .news-item { 
+            margin-bottom: 30px; 
+        }
+        .news-title { 
+            color: blue; 
+            text-decoration: underline; 
+            font-weight: bold; 
+            font-size: 18px; 
+            display: block; 
+            margin-bottom: 5px; 
+        }
+        .news-meta { 
+            font-style: italic; 
+            margin-bottom: 10px; 
+        }
+        .news-desc { 
+            text-align: justify; 
+            line-height: 1.5; 
+            margin-bottom: 10px; 
+        }
+        .news-link { 
+            color: blue; 
+            text-decoration: underline; 
+        }
+        .btn-container { 
+            width: 800px; 
+            margin: 0 auto; 
+            padding-left: 0; 
+        }
+        button { 
+            padding: 5px 15px; 
+            cursor: pointer; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="btn-container" id="topBtn">
+        <button class="btnLook">Look</button>
+    </div>
+
+    <div id="portalDisplay" style="display:none;">
+        <div class="outer-border">
+            <div class="header-section" id="areaHeader"></div>
+            <div class="content-section" id="areaContent"></div>
+            <div class="footer-section" id="areaFooter"></div>
+        </div>
+        <div class="btn-container">
+            <button class="btnLook">Look</button>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $(".btnLook").click(function() {
+                $.ajax({
+                    url: "json soal 2/SIJson.txt",
+                    dataType: "text",
+                    success: function(response) {
+                        var data = $.parseJSON(response.replace(/;\s*$/, ""));
+
+                        $("#areaHeader").html('<a href="' + data.link + '">' + data.title + '</a>');
+
+                        var itemsHtml = "";
+                        $.each(data.items, function(i, item) {
+                            itemsHtml += '<div class="news-item">';
+                            itemsHtml += '  <a class="news-title" href="' + item.link + '">' + item.title + '</a>';
+                            itemsHtml += '  <div class="news-meta">By : ' + item.author + ' / ' + item.published + '</div>';
+                            itemsHtml += '  <div class="news-desc">' + item.description + '</div>';
+                            itemsHtml += '  <div>Universitas : <a class="news-link" href="' + item.universitas.m + '">Click Here</a></div>';
+                            itemsHtml += '  <div style="margin-top:5px;">Tag(s) : ' + item.tags + '</div>';
+                            itemsHtml += '</div>';
+                        });
+                        
+                        $("#areaContent").html(itemsHtml);
+                        $("#areaFooter").text("©" + data.generator);
+                        
+                        $("#topBtn").hide();
+                        $("#portalDisplay").show();
+                    },
+                    error: function() {
+                        alert("Gagal memuat file SIJson.txt.");
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

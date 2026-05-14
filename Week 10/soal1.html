@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Daftar Mahasiswa</title>
+    <script src="jquery.js"></script>
+    <style>
+        table { 
+            width: 35%; 
+            border-collapse: collapse; 
+            margin-top: 20px; 
+        }
+        th { 
+            background-color: black; 
+            color: white; 
+            padding: 10px; 
+            text-align: left; 
+        }
+        td { 
+            padding: 10px; 
+            border: 1px solid #ccc; 
+        }
+        tr:nth-child(odd) { 
+            background-color: #FFFFCC; 
+        }
+        tr:nth-child(even) { 
+            background-color: #CCFFAA; 
+        }
+        .container { 
+            border: 1px solid #ccc; 
+            padding: 20px; 
+            width: 400px; 
+        }
+    </style>
+</head>
+<body>
+
+    <h3 style="font-family: sans-serif;">Selamat! Berikut adalah Daftar Mahasiswa yang mendapat Nilai A Pemograman Web SI Tahun Ajaran 2023/2024</h3>
+
+    <div class="container">
+        <input type="radio" name="kelas" value="2-json soal 1/nilai.js" checked> All<br>
+        <input type="radio" name="kelas" value="2-json soal 1/nilaiA.js"> Kelas A<br>
+        <input type="radio" name="kelas" value="2-json soal 1/nilaiB.js"> Kelas B<br><br>
+        <button id="btnSearch">Search</button>
+    </div>
+
+    <table id="tabelMahasiswa">
+        <thead>
+            <tr>
+                <th>NRP</th>
+                <th>NAMA</th>
+                <th>KELAS</th>
+                <th>NILAI AKHIR</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script>
+        $(document).ready(function() {
+            $("#btnSearch").click(function() {
+                var sumberData = $("input[name='kelas']:checked").val();
+                
+                $.getJSON(sumberData, function(data) {
+                    var html = "";
+                    $("#tabelMahasiswa tbody").empty();
+                    
+                    $.each(data.nilai, function(i, item) {
+                        html += "<tr>" +
+                                    "<td>" + item.nrp + "</td>" +
+                                    "<td>" + item.nama + "</td>" +
+                                    "<td>" + item.kelas + "</td>" +
+                                    "<td>" + item.nilaiakhir + "</td>" +
+                                "</tr>";
+                    });
+                    
+                    $("#tabelMahasiswa tbody").append(html);
+                });
+            });
+        });
+    </script>
+</body>
+</html>
